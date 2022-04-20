@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="co.uk.stackexchangeusers.presentation.userdetails.UserDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageUserThumb"
+            android:layout_width="@dimen/size_image_user"
+            android:layout_height="@dimen/size_image_user"
+            android:contentDescription="@null"
+            android:padding="@dimen/padding_small"
+            android:scaleType="fitCenter"
+            app:image="@{viewModel.userLiveData.profileImage}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_medium">
+
+            <TextView
+                android:id="@+id/textDisplayNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:padding="@dimen/padding_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:text="@{viewModel.userLiveData.displayName}"
+                app:layout_constraintStart_toEndOf="@+id/textDisplayNameLabel"
+                app:layout_constraintTop_toTopOf="@+id/textDisplayNameLabel"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/textReputationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_reputation"
+                android:padding="@dimen/padding_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDisplayNameLabel" />
+
+            <TextView
+                android:id="@+id/textReputation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:text="@{viewModel.userLiveData.reputation.toString()}"
+                app:layout_constraintStart_toEndOf="@+id/textReputationLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textDisplayNameLabel"
+                tools:text="Reputation" />
+
+            <TextView
+                android:id="@+id/textBadgesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_badges"
+                android:padding="@dimen/padding_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textReputationLabel" />
+
+            <TextView
+                android:id="@+id/textBadges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                app:badges="@{viewModel.userLiveData.badgeCounts}"
+                app:layout_constraintStart_toEndOf="@+id/textBadgesLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textReputation"
+                tools:text="Badges" />
+
+            <TextView
+                android:id="@+id/textLocationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_location"
+                android:padding="@dimen/padding_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBadgesLabel" />
+
+            <TextView
+                android:id="@+id/textLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:text="@{viewModel.userLiveData.location}"
+                app:layout_constraintStart_toEndOf="@+id/textLocationLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textBadgesLabel"
+                tools:text="Location" />
+
+            <TextView
+                android:id="@+id/textCreationDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:text="@string/user_creation_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLocationLabel" />
+
+            <TextView
+                android:id="@+id/textCreationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                app:date="@{viewModel.userLiveData.creationDate}"
+                app:layout_constraintStart_toEndOf="@+id/textCreationDateLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textLocationLabel"
+                tools:text="Creation Date" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

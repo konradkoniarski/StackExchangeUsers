@@ -14,11 +14,12 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="@dimen/size_image_user"
-            android:layout_height="@dimen/size_image_user"
-            android:id="@+id/imageCakeThumb"
+            android:layout_width="@dimen/size_image_user_list"
+            android:layout_height="@dimen/size_image_user_list"
+            android:id="@+id/imageUserThumb"
             android:scaleType="centerCrop"
             android:padding="@dimen/padding_small"
+            android:visibility="gone"
             android:contentDescription="@null"/>
 
         <LinearLayout

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import co.uk.stackexchangeusers.R
 import co.uk.stackexchangeusers.databinding.FragmentUserListBinding
 import co.uk.stackexchangeusers.domain.model.User
+import co.uk.stackexchangeusers.presentation.userdetails.UserDetailsFragment
 import kotlinx.android.synthetic.main.fragment_user_list.*
 import org.koin.android.ext.android.inject
 
@@ -30,7 +31,7 @@ class UserListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_list, container, false)
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -48,12 +49,23 @@ class UserListFragment : Fragment() {
 
         recycler_view_list_users.layoutManager = layoutManager
         recycler_view_list_users.hasFixedSize()
-        recycler_view_list_users.adapter = ItemsAdapter(object:ItemsAdapter.OnUserClickListener{
+        recycler_view_list_users.adapter = ItemsAdapter(object : ItemsAdapter.OnUserClickListener {
             override fun onUserClick(user: User) {
-                Toast.makeText(context,user.displayName, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, user.displayName, Toast.LENGTH_SHORT).show()
+                user.accountId?.let {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, UserDetailsFragment.newInstance(it))
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         })
-        recycler_view_list_users.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
+        recycler_view_list_users.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                layoutManager.orientation
+            )
+        )
 
         button_refresh.setOnClickListener {
             viewModel.loadData()

@@ -13,4 +13,7 @@ data class User(
     @Json(name = "location") val location: String?,
     @Json(name = "profile_image") val profileImage: String?,
     @Json(name = "user_id") val userId: Int?,
+    @Json(name = "accept_rate") val acceptRate: Int?,
+    @Json(name = "reputation") val reputation: Int?,
+
 )

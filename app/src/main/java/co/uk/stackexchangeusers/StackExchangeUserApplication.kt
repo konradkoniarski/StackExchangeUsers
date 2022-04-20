@@ -1,6 +1,8 @@
 package co.uk.stackexchangeusers
 
+import co.uk.stackexchangeusers.domain.interactors.GetUserUseCase
 import co.uk.stackexchangeusers.domain.interactors.GetUsersUseCase
+import co.uk.stackexchangeusers.presentation.userdetails.UserDetailsViewModel
 import co.uk.stackexchangeusers.presentation.userlist.UserListViewModel
 import co.uk.stackexchangeusers.repository.UserRepository
 import co.uk.stackexchangeusers.service.MainSchedulerService
@@ -22,10 +24,12 @@ class StackExchangeUserApplication: android.app.Application() {
         single { UserRepository(get()) }
 
         single { GetUsersUseCase() }
+        single { GetUserUseCase()}
 
         single { MainSchedulerService() as SchedulerService }
 
         viewModel { UserListViewModel(get(), get()) }
+        viewModel { UserDetailsViewModel(get(), get()) }
     }
 
     override fun onCreate() {

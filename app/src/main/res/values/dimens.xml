@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="size_image_user">100dp</dimen>
+    <dimen name="size_image_user">200dp</dimen>
+    <dimen name="size_image_user_list">100dp</dimen>
 
-    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_small">@dimen/space_small</dimen>
+    <dimen name="padding_medium">@dimen/space_medium</dimen>
+    <dimen name="padding_big">@dimen/space_big</dimen>
+
+    <dimen name="margin_small">@dimen/space_small</dimen>
+    <dimen name="margin_medium">@dimen/space_medium</dimen>
+    <dimen name="margin_big">@dimen/space_big</dimen>
+
+    <dimen name="space_small">10dp</dimen>
+    <dimen name="space_medium">30dp</dimen>
+    <dimen name="space_big">70dp</dimen>
 
 </resources>
