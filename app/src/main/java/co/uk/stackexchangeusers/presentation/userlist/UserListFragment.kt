@@ -52,7 +52,7 @@ class UserListFragment : Fragment() {
         recycler_view_list_users.adapter = ItemsAdapter(object : ItemsAdapter.OnUserClickListener {
             override fun onUserClick(user: User) {
                 Toast.makeText(context, user.displayName, Toast.LENGTH_SHORT).show()
-                user.accountId?.let {
+                user.userId?.let {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.container, UserDetailsFragment.newInstance(it))
                         .addToBackStack(null)
