@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="co.uk.stackexchangeusers.domain.model.User" />
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/size_image_user"
+            android:layout_height="@dimen/size_image_user"
+            android:id="@+id/imageCakeThumb"
+            android:scaleType="centerCrop"
+            android:padding="@dimen/padding_small"
+            android:contentDescription="@null"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textCakeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/textCakeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                tools:text="Description" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

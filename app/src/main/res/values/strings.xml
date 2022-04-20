@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">StackExchangeUsers</string>
+
+    <string name="users_api_url">https://api.stackexchange.com/2.3/</string>
+
+    <string name="no_data">No data available, please refresh</string>
+
+    <string name ="loading">Loading</string>
+    <string name ="refresh">Refresh</string>
+
 </resources>
