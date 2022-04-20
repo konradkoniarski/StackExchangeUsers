@@ -16,7 +16,8 @@
     <string name="user_badges">Badges:</string>
     <string name="user_location">Location:</string>
     <string name="user_creation_date">Creation Date:</string>
-
+    <string name="search_for_user">Search for user</string>
+    <string name="search">Search</string>
 
 
 </resources>

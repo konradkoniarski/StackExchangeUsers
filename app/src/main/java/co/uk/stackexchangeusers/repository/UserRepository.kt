@@ -9,9 +9,9 @@ class UserRepository(private val networkService: NetworkService): KoinComponent 
 
     private val apiInstance: UserApi = networkService.getUserApi()
 
-    suspend fun getUsers():UserResponse
+    suspend fun getUsers(name:String?):UserResponse
     {
-        return apiInstance.getUsers()
+        return apiInstance.getUsers(inname=name)
     }
 
     suspend fun getUser(id:Int):UserResponse

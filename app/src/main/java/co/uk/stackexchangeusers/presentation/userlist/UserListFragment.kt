@@ -68,7 +68,10 @@ class UserListFragment : Fragment() {
         )
 
         button_refresh.setOnClickListener {
-            viewModel.loadData()
+            viewModel.loadData(null)
+        }
+        buttonSearch.setOnClickListener {
+            viewModel.search(textSearch.text.toString())
         }
     }
 }

@@ -56,8 +56,8 @@ class ItemsAdapter(val onUserClickListener: OnUserClickListener) : RecyclerView.
 
         fun bind(item: User, onUserClickListener: OnUserClickListener) {
 
-            binding.textCakeDescription.text = item.displayName
-            binding.textCakeName.text = item.userId.toString()
+            binding.textUserDescription.text = item.displayName
+            binding.textUserName.text = item.userId.toString()
             Glide.with(binding.imageUserThumb)
                 .load(item.profileImage)
                 .into(binding.imageUserThumb)

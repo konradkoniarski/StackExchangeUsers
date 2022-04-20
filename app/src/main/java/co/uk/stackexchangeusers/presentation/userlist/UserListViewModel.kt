@@ -20,15 +20,15 @@ class UserListViewModel(
     val errorLiveData = MutableLiveData<Boolean>()
 
     fun start() {
-        loadData()
+        loadData(null)
     }
 
-    fun loadData() {
+    fun loadData(name: String?) {
         errorLiveData.postValue(false)
         CoroutineScope(schedulerService.IO).launch {
             var userResponse: UserResponse? = null
             try {
-                val data = getUserListUseCase.execute()
+                val data = getUserListUseCase.execute(name)
                 userResponse = data
             } catch (e: Throwable) {
                 Timber.e("Exception ${e.message}")
@@ -41,5 +41,9 @@ class UserListViewModel(
                 userResponse.let { userListLiveData.value = it }
             }
         }
+    }
+
+    fun search(name: String?) {
+        loadData(name)
     }
 }

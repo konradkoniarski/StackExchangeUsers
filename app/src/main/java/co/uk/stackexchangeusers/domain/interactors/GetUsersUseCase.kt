@@ -10,7 +10,7 @@ class GetUsersUseCase: KoinComponent {
     private val repository: UserRepository by inject()
 
     @Throws(Throwable::class)
-    suspend fun execute():UserResponse{
-        return repository.getUsers()
+    suspend fun execute(name:String?):UserResponse{
+        return repository.getUsers(name)
     }
 }
